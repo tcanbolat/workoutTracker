@@ -17,7 +17,7 @@ app.use(express.json());
 app.use(express.static("public"));
 
 mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/workout-trackerdb",
+  process.env.MONGODB_URI || "mongodb://localhost/workout",
   { useNewUrlParser: true }
 );
 
@@ -44,21 +44,25 @@ app.get("/api/workouts/", (req, res) => {
   });
 
 ///////////// ROUTE FOR CREATING A NEW WORKOUT /////////////
-app.post("/api/workouts/", ({ body }, res) => {
-  db.Workout.create(body)
+app.post("/api/workouts/", (req, res) => {
+  db.Workout.create()
     .then(dbWorkout => {
       res.json(dbWorkout);
     })
     .catch(err => {
-      console.log(err);
+      console.log(err); 
     });
 });
 
 ///////////// ROUTE FOR LOGGING A WORKOUT /////////////
-app.put("/api/workouts/:id", ({body}, res) => {
-    db.Workout.
-});
+// app.put("/api/workouts/:id", ({body}, res) => {
+//     db.Workout.
+// });
 
+///////////// ROUTE FOR WORKOUT RANGE /////////////
+// app.get("/api/workouts/range", (req, res) => {
+//   db.Workout.
+// })
 
 
 app.listen(PORT, () => {
