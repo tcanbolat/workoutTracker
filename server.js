@@ -16,7 +16,11 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-mongoose.connect(MONGODB_URI || "mongodb://mlabWorkout:"+ process.env.MONGOPASSWORD + "@ds239967.mlab.com:39967/heroku_pjhn1xrj", {
+// mongoose.connect(MONGODB_URI || "mongodb://mlabWorkout:"+ process.env.MONGOPASSWORD + "@ds239967.mlab.com:39967/heroku_pjhn1xrj", {
+//   useMongoClient: true
+// });
+
+mongoose.connect(MONGODB_URI || "mongodb://localhost/workout", {
   useNewUrlParser: true
 });
 
