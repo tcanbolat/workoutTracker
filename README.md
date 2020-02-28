@@ -1,7 +1,7 @@
 # workoutTracker
 ©2020
 
-**Description
+** Description **
 an app that will allow a user to view create and track daily workouts. the user can log multiple exercises in a workout on a given day. They can track the name, type, weight, sets, reps, and duration of exercise. If the exercise is a cardio exercise, it will track the distance traveled.
 
 
@@ -13,7 +13,7 @@ an app that will allow a user to view create and track daily workouts. the user 
 
 ## Live Demo - deployed on Heroku
 
-**https://wrkout-tracker.herokuapp.com
+** https://wrkout-tracker.herokuapp.com **
 
 ### Prerequisites
 
