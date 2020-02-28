@@ -1,8 +1,8 @@
 const express = require("express");
 const logger = require("morgan");
 const mongoose = require("mongoose");
-const path = require("path");
 
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/workout";
 const PORT = process.env.PORT || 3000;
 
 const db = require("./models");
@@ -16,24 +16,24 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", {
+mongoose.connect(MONGODB_URI || "mongodb://localhost/workout", {
   useNewUrlParser: true
 });
 
-//require("./seeders/seed");
 ///////////// HTML ROUTES /////////////
 app.get("/stats", (req, res) => {
-  res.sendFile(path.join(__dirname, "/public/stats.html"));
+  res.redirect("./stats.html");
 });
 
 app.get("/exercise", (req, res) => {
-  res.sendFile(path.join(__dirname, "/public/exercise.html"));
+  res.redirect("./exercise.html");
 });
 
 ///////////// API ROUTES /////////////
 
 ///////////// ROUTE FOR GETTING ALL WORKOUTS /////////////
 app.get("/api/workouts/", (req, res) => {
+  //console.log(req);
   db.Workout.find({})
     .then(dbWorkout => {
       res.json(dbWorkout);
@@ -60,9 +60,10 @@ app.put("/api/workouts/:id", (req, res) => {
   const body = req.body;
   console.log(id);
   console.log(body);
-  db.Workout.findOneAndUpdate({ _id: id }, { $push: { exercises: body } })
+  db.Workout.findByIdAndUpdate({ _id: id }, { $push: { exercises: body } })
     .then(dbWorkout => {
       res.json(dbWorkout);
+      console.log(dbWorkout);
     })
     .catch(err => {
       console.log(err);
@@ -72,10 +73,25 @@ app.put("/api/workouts/:id", (req, res) => {
 ///////////// ROUTE FOR WORKOUT RANGE /////////////
 app.get("/api/workouts/range", (req, res) => {
   db.Workout.find({}, (err, data) => {
-    console.log("/workuts/range is hit");
-    console.log(data);
+   console.log("/workuts/range is hit");
+  console.log(data);
+  console.log(err);
   })
+ // db.Workout.aggregate([{ $group: { _id: 'id', name: { $max: '$name' } } }])
+  // db.Workout.find({}, (err, data) => {
+
+  // // for (let i = 0; i < data; i++) {
+  // // }
+  // data.map(workDB => {
+  //   console.log(workDB);
+  // })
+  // })
     .then(dbWorkout => {
+      // console.log(dbWorkout);
+      // console.log(dbWorkout.length);
+      // for(let i =0; i < dbWorkout.length; i++) {
+      //   console.log(dbWorkout[i].exercises);
+      // }
       res.json(dbWorkout);
     })
     .catch(err => {
