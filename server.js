@@ -2,8 +2,8 @@ const express = require("express");
 const logger = require("morgan");
 const mongoose = require("mongoose");
 
-const MONGODB_URI = process.env.MONGODB_URI || "mongodb://<dbuser>:<dbpassword>@ds239967.mlab.com:39967/heroku_pjhn1xrj";
-const PORT = process.env.PORT || 3000;
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://mlabWorkout:"+ process.env.MONGOPASSWORD + "@ds239967.mlab.com:39967/heroku_pjhn1xrj";
+const PORT = process.env.PORT || 3000;          
 
 const db = require("./models");
 
