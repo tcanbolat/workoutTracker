@@ -1,8 +1,15 @@
 # workoutTracker
 ©2020
 
-** Description **
+## Description
+
 an app that will allow a user to view create and track daily workouts. the user can log multiple exercises in a workout on a given day. They can track the name, type, weight, sets, reps, and duration of exercise. If the exercise is a cardio exercise, it will track the distance traveled.
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+## Live Demo - deployed on Heroku
+
+** https://wrkout-tracker.herokuapp.com **
 
 ----------------------------------------------------------------------------------------------------------------------------------------
 
@@ -11,12 +18,6 @@ an app that will allow a user to view create and track daily workouts. the user 
  - What you will need Nodejs, Mongodb
  
  - You can fork or clone the repo, run npm install, then node server.js
- 
- ---------------------------------------------------------------------------------------------------------------------------------------
-
-## Live Demo - deployed on Heroku
-
-** https://wrkout-tracker.herokuapp.com **
 
  ---------------------------------------------------------------------------------------------------------------------------------------
  ---------------------------------------------------------------------------------------------------------------------------------------
