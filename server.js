@@ -16,13 +16,13 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-// mongoose.connect(MONGODB_URI || "mongodb://mlabWorkout:"+ process.env.MONGOPASSWORD + "@ds239967.mlab.com:39967/heroku_pjhn1xrj", {
-//   useMongoClient: true
-// });
-
-mongoose.connect(MONGODB_URI || "mongodb://localhost/workout", {
-  useNewUrlParser: true
+mongoose.connect(MONGODB_URI || "mongodb://mlabWorkout:"+ process.env.MONGOPASSWORD + "@ds239967.mlab.com:39967/heroku_pjhn1xrj", {
+  useMongoClient: true
 });
+
+// mongoose.connect(MONGODB_URI || "mongodb://localhost/workout", {
+//   useNewUrlParser: true
+// });
 
 ///////////// HTML ROUTES /////////////
 app.get("/stats", (req, res) => {
@@ -81,21 +81,7 @@ app.get("/api/workouts/range", (req, res) => {
   console.log(data);
   console.log(err);
   })
- // db.Workout.aggregate([{ $group: { _id: 'id', name: { $max: '$name' } } }])
-  // db.Workout.find({}, (err, data) => {
-
-  // // for (let i = 0; i < data; i++) {
-  // // }
-  // data.map(workDB => {
-  //   console.log(workDB);
-  // })
-  // })
     .then(dbWorkout => {
-      // console.log(dbWorkout);
-      // console.log(dbWorkout.length);
-      // for(let i =0; i < dbWorkout.length; i++) {
-      //   console.log(dbWorkout[i].exercises);
-      // }
       res.json(dbWorkout);
     })
     .catch(err => {

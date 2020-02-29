@@ -210,14 +210,15 @@ function calculateTotalWeight(data) {
   return total;
 }
 
+
 function workoutNames(data) {
   let workouts = [];
-
   data.forEach(workout => {
     workout.exercises.forEach(exercise => {
       workouts.push(exercise.name);
     });
   });
-  
-  return workouts;
+  let uniqueArray = [...new Set(workouts)];
+  console.log(uniqueArray);
+  return uniqueArray;
 }
