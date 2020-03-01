@@ -163,7 +163,8 @@ function populateChart(data) {
         text: "Excercises Performed"
       }
     }
-  });
+  }
+  );
 
   let donutChart = new Chart(pie2, {
     type: "doughnut",
@@ -200,7 +201,6 @@ function duration(data) {
 
 function calculateTotalWeight(data) {
   let total = [];
-
   data.forEach(workout => {
     workout.exercises.forEach(exercise => {
       total.push(exercise.weight);
@@ -210,7 +210,6 @@ function calculateTotalWeight(data) {
   return total;
 }
 
-
 function workoutNames(data) {
   let workouts = [];
   data.forEach(workout => {
@@ -218,7 +217,7 @@ function workoutNames(data) {
       workouts.push(exercise.name);
     });
   });
-  let uniqueArray = [...new Set(workouts)];
-  console.log(uniqueArray);
-  return uniqueArray;
+  // let uniqueArray = [...new Set(workouts)];
+  // console.log(uniqueArray);
+  return workouts;
 }

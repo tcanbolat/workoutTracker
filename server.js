@@ -62,8 +62,6 @@ app.post("/api/workouts/", (req, res) => {
 app.put("/api/workouts/:id", (req, res) => {
   const id = req.params.id;
   const body = req.body;
-  console.log(id);
-  console.log(body);
   db.Workout.findByIdAndUpdate({ _id: id }, { $push: { exercises: body } })
     .then(dbWorkout => {
       res.json(dbWorkout);
@@ -77,9 +75,6 @@ app.put("/api/workouts/:id", (req, res) => {
 ///////////// ROUTE FOR WORKOUT RANGE /////////////
 app.get("/api/workouts/range", (req, res) => {
   db.Workout.find({}, (err, data) => {
-   console.log("/workuts/range is hit");
-  console.log(data);
-  console.log(err);
   })
     .then(dbWorkout => {
       res.json(dbWorkout);
