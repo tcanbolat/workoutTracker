@@ -43,12 +43,6 @@ Please note we have a code of conduct, please follow it in all your interactions
 
 ---------------------------------------------------------------------------------------------------------------------------------------
 
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
-
----------------------------------------------------------------------------------------------------------------------------------------
-
 ## Authors
 
 * **Abdullah Canbolat** - [tcanbolat](https://github.com/tcanbolat)
